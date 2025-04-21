@@ -1,0 +1,9 @@
+def leaf World () ⇒ Part_Template {
+  p ⇐ #freshTemplate (Part_Template)
+  p.handler ⇐ ↪︎World_handler
+  return p
+}
+
+defn World_handler (eh) {
+  send (eh, "", "World")
+}

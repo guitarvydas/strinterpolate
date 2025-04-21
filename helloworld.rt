@@ -1,0 +1,13 @@
+def container HelloWorld () {
+  deftemp p ⇐ #extendPartToContainer (#freshTemplate (Part_Template))
+  p.handler ⇐ ↪︎container_handler
+  hello ≡ #refTemplate (Hello_Template)
+  world ≡ #refTemplate (World_Template)
+  #addpart (p, hello)
+  #addpart (p, world)
+  #addwire (p, "down", p, "", hello, "")
+  #addwire (p, "across", hello, "", world, "")
+  #addwire (p, "up", world, "", p, "")
+  return p
+}
+
