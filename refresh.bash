@@ -14,7 +14,7 @@ if [ -n "${DEV_PBP}" ]; then
     cp ~/projects/zd/kernel0d.py ${KERNEL}/kernel0d.py
     cp ~/projects/rt/stubbed-out-repl.py ${KERNEL}/repl.py
     cp ~/projects/0D/das2json/das2json.mjs ${DAS}/das2json.mjs
-    cp ~/projects/t2t/nanodsl .${T2T}
+    cp ~/projects/t2t/nanodsl ./${T2T}
     chmod a+x ${T2T}/nanodsl
     cp -R ~/projects/t2t/lib ${T2T}
 
