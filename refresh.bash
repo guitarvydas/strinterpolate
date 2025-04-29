@@ -11,39 +11,48 @@ if [ -n "${DEV_PBP}" ]; then
     rm -rf pbp
     mkdir -p ${PTK} ${KERNEL} ${DAS} ${TAS} ${T2T}
 
-    cp ~/projects/zd/kernel0d.py ${KERNEL}/kernel0d.py
-    cp ~/projects/rt/stubbed-out-repl.py ${KERNEL}/repl.py
-    cp ~/projects/0D/das2json/das2json.mjs ${DAS}/das2json.mjs
-    cp ~/projects/t2t/nanodsl ./${T2T}
+    cp ~/projects/pbp/tas.bash .
+    chmod a+x tas.bash
+    
+    cp ~/projects/pbp-dev/kernel/kernel0d.py ${KERNEL}/kernel0d.py
+    cp ~/projects/pbp-dev/kernel/stubbed-out-repl.py ${KERNEL}/repl.py
+    cp ~/projects/pbp-dev/kernel/decodeoutput.mjs ${KERNEL}
+    cp ~/projects/pbp-dev/das/das2json.mjs ${DAS}/das2json.mjs
+    cp ~/projects/pbp-dev/t2t/nanodsl ./${T2T}
     chmod a+x ${T2T}/nanodsl
-    cp -R ~/projects/t2t/lib ${T2T}
+    cp -R ~/projects/pbp-dev/t2t/lib ${T2T}
 
-    RT=~/projects/rt
-    cp ${RT}/cldecode.{ohm,rewrite} ${TAS}
-    cp ${RT}/cleanup.py ${TAS}
-    cp ${RT}/clindenter.mjs ${TAS}
-    cp ${RT}/clmvline.py ${TAS}
-    cp ${RT}/clrelocate.py ${TAS}
-    cp ${RT}/emit.ohm ${TAS}
-    cp ${RT}/emitPython.rewrite ${TAS}
-    cp ${RT}/emitcl.rewrite ${TAS}
-    cp ${RT}/emitjs.rewrite ${TAS}
-    cp ${RT}/empty.rt ${TAS}
-    cp ${RT}/errgrep.py ${TAS}
-    cp ${RT}/indenter.mjs ${TAS}
-    cp ${RT}/internalize.{ohm,rewrite} ${TAS}
-    cp ${RT}/jsdecode.{ohm,rewrite} ${TAS}
-    cp ${RT}/jsindenter.mjs ${TAS}
-    cp ${RT}/jsrelocate.py ${TAS}
-    cp ${RT}/main.py ${TAS}
-    cp ${RT}/pydecode.{ohm,rewrite} ${TAS}
-    cp ${RT}/pyrelocate.py ${TAS}
-    cp ${RT}/rt2all.drawio.json ${TAS}
-    cp ${RT}/semantics.{ohm,rewrite} ${TAS}
-    cp ${RT}/support.js ${TAS}
-    cp ${RT}/syntax.{ohm,rewrite} ${TAS}
-    cp ${RT}/unencode.mjs ${TAS}
-
-    cp ${RT}/ndsl ${TAS}
-    chmod a+x ${TAS}/ndsl
+    TaS_Dev=~/projects/pbp-dev/tas
+    # for TaS, use code that is known to work for TaS (ostensibly the same as ${KERNEL}/???, but not necessarily)
+    cp ${TaS_Dev}/cldecode.{ohm,rewrite} ${TAS}
+    cp ${TaS_Dev}/cleanup.py ${TAS}
+    cp ${TaS_Dev}/clindenter.mjs ${TAS}
+    cp ${TaS_Dev}/clmvline.py ${TAS}
+    cp ${TaS_Dev}/clrelocate.py ${TAS}
+    cp ${TaS_Dev}/decodeoutput.mjs ${TAS}
+    cp ${TaS_Dev}/das2json.js ${TAS}
+    cp ${TaS_Dev}/emit.ohm ${TAS}
+    cp ${TaS_Dev}/emitPython.rewrite ${TAS}
+    cp ${TaS_Dev}/emitcl.rewrite ${TAS}
+    cp ${TaS_Dev}/emitjs.rewrite ${TAS}
+    cp ${TaS_Dev}/errgrep.py ${TAS}
+    cp ${TaS_Dev}/indenter.mjs ${TAS}
+    cp ${TaS_Dev}/internalize.{ohm,rewrite} ${TAS}
+    cp ${TaS_Dev}/jsdecode.{ohm,rewrite} ${TAS}
+    cp ${TaS_Dev}/jsindenter.mjs ${TAS}
+    cp ${TaS_Dev}/jsrelocate.py ${TAS}
+    cp ${TaS_Dev}/kernel0d.py ${TAS}
+    cp ${TaS_Dev}/main.py ${TAS}
+    cp ${TaS_Dev}/pydecode.{ohm,rewrite} ${TAS}
+    cp ${TaS_Dev}/pyrelocate.py ${TAS}
+    cp ${TaS_Dev}/repl.py ${TAS}
+    cp ${TaS_Dev}/tas.drawio.json ${TAS}
+    cp ${TaS_Dev}/ndsl ./${TAS}
+    chmod a+x ${TaS_Dev}/ndsl
+    cp -R ${TaS_Dev}/t2t ${TAS}
+    chmod a+x ${TAS}/t2t/nanodsl
+    cp ${TaS_Dev}/semantics.{ohm,rewrite} ${TAS}
+    cp ${TaS_Dev}/support.js ${TAS}
+    cp ${TaS_Dev}/syntax.{ohm,rewrite} ${TAS}
+    cp ${TaS_Dev}/unencode.mjs ${TAS}
 fi

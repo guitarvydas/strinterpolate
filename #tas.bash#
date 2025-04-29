@@ -2,7 +2,7 @@
 set -e
 echo $1
 cd pbp/tas
-python3 main.py . - "../../$1" main rt2all.drawio.json | node ../kernel/decodeoutput.mjs
+python3 main.py . - "../../$1" main tas.drawio.json | node ../kernel/decodeoutput.mjs
 if [ ! -s out.md ]; then
     mv out.py $1.py
     mv out.js $1.js
