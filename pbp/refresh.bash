@@ -11,8 +11,15 @@ if [ -n "${DEV_PBP}" ]; then
     rm -rf pbp
     mkdir -p ${PTK} ${KERNEL} ${DAS} ${TAS} ${T2T}
 
-    cp ~/projects/pbp/tas.bash .
+    cp ~/projects/pbp/refresh.bash .
+    chmod a+x refresh.bash
+    cp ~/projects/pbp/t2t.bash ./pbp
+    chmod a+x t2t.bash
+    cp ~/projects/pbp/tas.bash ./pbp
     chmod a+x tas.bash
+    cp ~/projects/pbp/das.bash ./pbp
+    chmod a+x das.bash
+
     
     cp ~/projects/pbp-dev/kernel/kernel0d.py ${KERNEL}/kernel0d.py
     cp ~/projects/pbp-dev/kernel/stubbed-out-repl.py ${KERNEL}/repl.py

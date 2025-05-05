@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+set -v -x
+WDIR=$1
+GRAMMAR=$2
+REWRITE=$3
+SUPPORT=$4
+STDIN=-
+LIB=${WDIR}/pbp/t2t/lib
+node ${LIB}/t2t.mjs ${REWRITE} >temp.rewrite.mjs
+cat ${LIB}/front.part.js ${GRAMMAR} ${LIB}/middle.part.js ${LIB}/args.part.js ${SUPPORT} temp.rewrite.mjs ${LIB}/tail.part.js >temp.nanodsl.mjs
+node temp.nanodsl.mjs ${SRC}
