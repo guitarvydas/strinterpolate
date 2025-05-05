@@ -93,7 +93,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "List Filenames",
@@ -105,43 +105,22 @@
       {
         "name": "1then2",
         "id": 8
-      },
-      {
-        "name": "Wrapped Filenames",
-        "id": 14
       }
     ],
     "connections": [
       {
         "dir": 0,
         "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": "Wrapped Filenames",
-          "id": 14
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
         "target_port": "1",
-        "source": {
-          "name": "Wrapped Filenames",
-          "id": 14
-        },
         "target": {
           "name": "1then2",
           "id": 8
         }
       },
       {
-        "dir": 1,
+        "dir": 0,
         "source_port": "",
         "target_port": "2",
-        "source": {
-          "name": "Wrapped Filenames",
-          "id": 14
-        },
         "target": {
           "name": "1then2",
           "id": 8
@@ -179,119 +158,7 @@
         }
       }
     ],
-    "file": "part.drawio"
-  },
-  {
-    "name": "Wrapped Filenames",
-    "children": [
-      {
-        "name": "'hello.rt",
-        "id": 5
-      },
-      {
-        "name": "'empty.rt",
-        "id": 8
-      },
-      {
-        "name": "'DONE",
-        "id": 11
-      },
-      {
-        "name": "1then2",
-        "id": 14
-      }
-    ],
-    "connections": [
-      {
-        "dir": 0,
-        "source_port": "",
-        "target_port": "",
-        "target": {
-          "name": "'hello.rt",
-          "id": 5
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "'hello.rt",
-          "id": 5
-        },
-        "target": {
-          "name": "'empty.rt",
-          "id": 8
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "1",
-        "source": {
-          "name": "'empty.rt",
-          "id": 8
-        },
-        "target": {
-          "name": "1then2",
-          "id": 14
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "",
-        "target_port": "2",
-        "source": {
-          "name": "'empty.rt",
-          "id": 8
-        },
-        "target": {
-          "name": "1then2",
-          "id": 14
-        }
-      },
-      {
-        "dir": 1,
-        "source_port": "2",
-        "target_port": "",
-        "source": {
-          "name": "1then2",
-          "id": 14
-        },
-        "target": {
-          "name": "'DONE",
-          "id": 11
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "",
-        "target_port": "",
-        "source": {
-          "name": "'hello.rt",
-          "id": 5
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "",
-        "target_port": "fini",
-        "source": {
-          "name": "'DONE",
-          "id": 11
-        }
-      },
-      {
-        "dir": 2,
-        "source_port": "1",
-        "target_port": "",
-        "source": {
-          "name": "1then2",
-          "id": 14
-        }
-      }
-    ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "ALL List Filenames",
@@ -594,7 +461,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Generate",
@@ -712,7 +579,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Front End",
@@ -803,7 +670,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Back End",
@@ -1009,7 +876,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Generate Javascript",
@@ -1161,7 +1028,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Generate Python",
@@ -1420,7 +1287,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Generate Common Lisp",
@@ -1572,7 +1439,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Inhale",
@@ -1637,7 +1504,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Syntax Check",
@@ -1676,7 +1543,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Semantics Check",
@@ -1715,7 +1582,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "RT to Javascript",
@@ -1754,7 +1621,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "RT to Python",
@@ -1793,7 +1660,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "RT to Common Lisp",
@@ -1832,7 +1699,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Uninternalize",
@@ -1871,7 +1738,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Decode For Javascript",
@@ -1910,7 +1777,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Javascript Indenter",
@@ -1949,7 +1816,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Exhale Javascript",
@@ -2040,7 +1907,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "seq12",
@@ -2088,7 +1955,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "seq123",
@@ -2171,7 +2038,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Encode",
@@ -2210,7 +2077,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Exhale Python",
@@ -2301,7 +2168,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Decode for Python",
@@ -2340,7 +2207,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Python Indenter",
@@ -2379,7 +2246,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Grep for Errors",
@@ -2418,7 +2285,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "?inlineA",
@@ -2444,7 +2311,7 @@
         "target_port": ""
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "?inlineB",
@@ -2470,7 +2337,7 @@
         "target_port": ""
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "?inlineC",
@@ -2496,7 +2363,7 @@
         "target_port": ""
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "palette",
@@ -2507,7 +2374,7 @@
       }
     ],
     "connections": [],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Exhale Common Lisp",
@@ -2598,7 +2465,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Decode For Common Lisp",
@@ -2637,7 +2504,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Common Lisp Indenter",
@@ -2676,7 +2543,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Cleanup",
@@ -2715,7 +2582,7 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   },
   {
     "name": "Write To Python File",
@@ -2826,6 +2693,6 @@
         }
       }
     ],
-    "file": "part.drawio"
+    "file": "rt2all.drawio"
   }
 ]
