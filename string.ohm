@@ -1,0 +1,9 @@
+strint {
+  Main = Statement
+  Statement =
+    | "print" #string
+  string =
+    | "${" string "}" string? -- recursive
+    | ~"}" any string?     -- other
+}
+

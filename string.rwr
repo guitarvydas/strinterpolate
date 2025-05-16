@@ -1,0 +1,6 @@
+% rewrite strint {
+  Main [s] = ‛«s»’
+  Statement [_print s] = ‛print «s»’
+  string_recursive [lb s1 rb s2?] = ’strcat («s1», «s2»)’
+  string_other [c s?] = ‛«c»«s»’
+}
