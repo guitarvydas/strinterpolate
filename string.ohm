@@ -8,7 +8,7 @@ strint {
     | interpolation str1ng -- interpolationPair
     | interpolation -- finalInterpolation
   basicString = notSpecial+
-  interpolation = "◎" "⦅" str1ng "⦆"
-  notSpecial = ~"◎" ~"⦅" ~"⦆" ~"\"" any
+  interpolation = "$" "{" str1ng "}"
+  notSpecial = ~"$" ~"{" ~"}" ~"\"" any
 }
 

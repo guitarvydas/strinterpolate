@@ -17,12 +17,16 @@ let _rewrite = {
 
 main : function (s,) {
 enter_rule ("main");
-    set_return (`${s.rwr ().join ('')}`);
+    set_return (`
+def strcat (s1, s2):
+    return s1 + s2
+    
+${s.rwr ().join ('')}`);
 return exit_rule ("main");
 },
 statement : function (_print,_ws,lq,s,rq,ws,) {
 enter_rule ("statement");
-    set_return (`print ${s.rwr ()}${ws.rwr ()}`);
+    set_return (`print (${s.rwr ()})${ws.rwr ()}`);
 return exit_rule ("statement");
 },
 str1ng_basicPair : function (s1,s2,) {

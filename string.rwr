@@ -1,6 +1,10 @@
 % rewrite strint {
-  main [s+] = ‛«s»’
-  statement [_print _ws lq s rq ws] = ‛print «s»«ws»’
+  main [s+] = ‛
+def strcat (s1, s2):
+    return s1 + s2
+    
+«s»’
+  statement [_print _ws lq s rq ws] = ‛print («s»)«ws»’
   str1ng_basicPair [s1 s2] = ‛strcat («s1», «s2»)’ 
   str1ng_basic [s] = ‛«s»’
   str1ng_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
