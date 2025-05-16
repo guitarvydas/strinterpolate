@@ -1,10 +1,14 @@
 strint {
-  Main = Statement
-  Statement =
-    | "print" #str1ng
+  main = statement
+  statement =
+    | "print" space+ "\"" str1ng "\""
   str1ng =
-    | "◎" "⦅" str1ng "⦆" str1ng? -- recursive
-    | notSpecial+ str1ng?     -- other
-  notSpecial = ~"◎" ~"⦅" ~"⦆" any
+    | basicString str1ng -- basicPair
+    | basicString -- basic
+    | interpolation str1ng -- interpolationPair
+    | interpolation -- finalInterpolation
+  basicString = notSpecial+
+  interpolation = "◎" "⦅" str1ng "⦆"
+  notSpecial = ~"◎" ~"⦅" ~"⦆" ~"\"" any
 }
 

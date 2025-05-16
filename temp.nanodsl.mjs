@@ -36,13 +36,17 @@ function exit_rule (name) {
 
 const grammar = String.raw`
 strint {
-  Main = Statement
-  Statement =
-    | "print" #str1ng
+  main = statement
+  statement =
+    | "print" space+ "\"" str1ng "\""
   str1ng =
-    | "◎" "⦅" str1ng "⦆" str1ng? -- recursive
-    | notSpecial+ str1ng?     -- other
-  notSpecial = ~"◎" ~"⦅" ~"⦆" any
+    | basicString str1ng -- basicPair
+    | basicString -- basic
+    | interpolation str1ng -- interpolationPair
+    | interpolation -- finalInterpolation
+  basicString = notSpecial+
+  interpolation = "◎" "⦅" str1ng "⦆"
+  notSpecial = ~"◎" ~"⦅" ~"⦆" ~"\"" any
 }
 
 `;
@@ -76,25 +80,45 @@ function getParameter (name) {
 
 let _rewrite = {
 
-Main : function (s,) {
-enter_rule ("Main");
+main : function (s,) {
+enter_rule ("main");
     set_return (`${s.rwr ()}`);
-return exit_rule ("Main");
+return exit_rule ("main");
 },
-Statement : function (_print,s,) {
-enter_rule ("Statement");
+statement : function (_print,_ws,lq,s,rq,) {
+enter_rule ("statement");
     set_return (`print ${s.rwr ()}`);
-return exit_rule ("Statement");
+return exit_rule ("statement");
 },
-str1ng_recursive : function (_dollar,lb,s1,rb,s2,) {
-enter_rule ("str1ng_recursive");
-    set_return (`strcat (${s1.rwr ()}, ${s2.rwr ().join ('')})`);
-return exit_rule ("str1ng_recursive");
+str1ng_basicPair : function (s1,s2,) {
+enter_rule ("str1ng_basicPair");
+    set_return (`strcat ("${s1.rwr ()}", ${s2.rwr ()})`);
+return exit_rule ("str1ng_basicPair");
 },
-str1ng_other : function (cs,s,) {
-enter_rule ("str1ng_other");
-    set_return (`${cs.rwr ().join ('')}${s.rwr ().join ('')}`);
-return exit_rule ("str1ng_other");
+str1ng_basic : function (s,) {
+enter_rule ("str1ng_basic");
+    set_return (`"${s.rwr ()}"`);
+return exit_rule ("str1ng_basic");
+},
+str1ng_interpolationPair : function (s1,s2,) {
+enter_rule ("str1ng_interpolationPair");
+    set_return (`strcat (${s1.rwr ()}, ${s2.rwr ()})`);
+return exit_rule ("str1ng_interpolationPair");
+},
+str1ng_finalInterpolation : function (s,) {
+enter_rule ("str1ng_finalInterpolation");
+    set_return (`${s.rwr ()}`);
+return exit_rule ("str1ng_finalInterpolation");
+},
+basicString : function (cs,) {
+enter_rule ("basicString");
+    set_return (`"${cs.rwr ().join ('')}"`);
+return exit_rule ("basicString");
+},
+interpolation : function (_dollar,lb,s,rb,) {
+enter_rule ("interpolation");
+    set_return (`${s.rwr ()}`);
+return exit_rule ("interpolation");
 },
 notSpecial : function (c,) {
 enter_rule ("notSpecial");
