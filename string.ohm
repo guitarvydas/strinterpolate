@@ -1,7 +1,7 @@
 strint {
-  main = statement
+  main = statement+
   statement =
-    | "print" space+ "\"" str1ng "\""
+    | "print" space+ "\"" str1ng "\"" spaces
   str1ng =
     | basicString str1ng -- basicPair
     | basicString -- basic
