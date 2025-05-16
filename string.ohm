@@ -1,9 +1,9 @@
 strint {
   Main = Statement
   Statement =
-    | "print" #string
-  string =
-    | "${" string "}" string? -- recursive
-    | ~"}" any string?     -- other
+    | "print" #str1ng
+  str1ng =
+    | "$" "{" str1ng "}" str1ng? -- recursive
+    | ~"}" any str1ng?     -- other
 }
 

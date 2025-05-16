@@ -1,6 +1,6 @@
 % rewrite strint {
   Main [s] = ‛«s»’
   Statement [_print s] = ‛print «s»’
-  str1ng_recursive [_dollar lb s1 rb s2?] = ‛strcat («s1», «s2»)’
+  str1ng_recursive [_dollar lb s1 rb s2?] = ‛«_dollar»«lb»«s1»«rb»«s2»’
   str1ng_other [c s?] = ‛«c»«s»’
 }
