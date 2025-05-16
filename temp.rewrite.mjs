@@ -27,12 +27,12 @@ return exit_rule ("statement");
 },
 str1ng_basicPair : function (s1,s2,) {
 enter_rule ("str1ng_basicPair");
-    set_return (`strcat ("${s1.rwr ()}", ${s2.rwr ()})`);
+    set_return (`strcat (${s1.rwr ()}, ${s2.rwr ()})`);
 return exit_rule ("str1ng_basicPair");
 },
 str1ng_basic : function (s,) {
 enter_rule ("str1ng_basic");
-    set_return (`"${s.rwr ()}"`);
+    set_return (`${s.rwr ()}`);
 return exit_rule ("str1ng_basic");
 },
 str1ng_interpolationPair : function (s1,s2,) {

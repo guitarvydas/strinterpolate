@@ -1,8 +1,8 @@
 % rewrite strint {
   main [s] = ‛«s»’
   statement [_print _ws lq s rq] = ‛print «s»’
-  str1ng_basicPair [s1 s2] = ‛strcat ("«s1»", «s2»)’ 
-  str1ng_basic [s] = ‛"«s»"’
+  str1ng_basicPair [s1 s2] = ‛strcat («s1», «s2»)’ 
+  str1ng_basic [s] = ‛«s»’
   str1ng_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
   str1ng_finalInterpolation [s] = ‛«s»’
   basicString [cs+] = ‛"«cs»"’
