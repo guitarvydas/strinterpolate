@@ -3,7 +3,8 @@ strint {
   Statement =
     | "print" #str1ng
   str1ng =
-    | "$" "{" str1ng "}" str1ng? -- recursive
-    | ~"}" any str1ng?     -- other
+    | "◎" "⦅" str1ng "⦆" str1ng? -- recursive
+    | notSpecial+ str1ng?     -- other
+  notSpecial = ~"◎" ~"⦅" ~"⦆" any
 }
 

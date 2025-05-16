@@ -40,8 +40,9 @@ strint {
   Statement =
     | "print" #str1ng
   str1ng =
-    | "$" "{" str1ng "}" str1ng? -- recursive
-    | ~"}" any str1ng?     -- other
+    | "◎" "⦅" str1ng "⦆" str1ng? -- recursive
+    | notSpecial+ str1ng?     -- other
+  notSpecial = ~"◎" ~"⦅" ~"⦆" any
 }
 
 `;
@@ -90,10 +91,15 @@ enter_rule ("str1ng_recursive");
     set_return (`strcat (${s1.rwr ()}, ${s2.rwr ().join ('')})`);
 return exit_rule ("str1ng_recursive");
 },
-str1ng_other : function (c,s,) {
+str1ng_other : function (cs,s,) {
 enter_rule ("str1ng_other");
-    set_return (`${c.rwr ()}${s.rwr ().join ('')}`);
+    set_return (`${cs.rwr ().join ('')}${s.rwr ().join ('')}`);
 return exit_rule ("str1ng_other");
+},
+notSpecial : function (c,) {
+enter_rule ("notSpecial");
+    set_return (`${c.rwr ()}`);
+return exit_rule ("notSpecial");
 },
 _terminal: function () { return this.sourceString; },
 _iter: function (...children) { return children.map(c => c.rwr ()); }
