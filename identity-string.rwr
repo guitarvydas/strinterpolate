@@ -1,10 +1,10 @@
 % rewrite strint {
   main [s+] = ‛«s»’
   statement [_print ws1+ _dqleft s _dqright ws2] = ‛«_print»«ws1»«_dqleft»«s»«_dqright»«ws2»’
-  str1ng_basicPair [s1 s2] = ‛«s1»«s2»’
-  str1ng_basic [s] = ‛«s»’
-  str1ng_interpolationPair [s1 s2] = ‛«s1»«s2»’
-  str1ng_finalInterpolation [s] = ‛«s»’
+  string_basicPair [s1 s2] = ‛«s1»«s2»’
+  string_basic [s] = ‛«s»’
+  string_interpolationPair [s1 s2] = ‛«s1»«s2»’
+  string_finalInterpolation [s] = ‛«s»’
   basicString [cs+] = ‛«cs»’
   interpolation [_dollar _lb s _rb] = ‛«_dollar»«_lb»«s»«_rb»’
   notSpecial [c] = ‛«c»’

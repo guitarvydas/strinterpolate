@@ -5,10 +5,10 @@ def strcat (s1, s2):
     
 «s»’
   statement [_print _ws lq s rq ws] = ‛print («s»)«ws»’
-  str1ng_basicPair [s1 s2] = ‛strcat («s1», «s2»)’ 
-  str1ng_basic [s] = ‛«s»’
-  str1ng_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
-  str1ng_finalInterpolation [s] = ‛«s»’
+  string_basicPair [s1 s2] = ‛strcat («s1», «s2»)’ 
+  string_basic [s] = ‛«s»’
+  string_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
+  string_finalInterpolation [s] = ‛«s»’
   basicString [cs+] = ‛"«cs»"’
   interpolation [_dollar lb s rb] = ‛«s»’
   notSpecial [c] = ‛«c»’

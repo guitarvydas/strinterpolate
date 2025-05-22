@@ -25,25 +25,25 @@ enter_rule ("statement");
     set_return (`${_print.rwr ()}${ws1.rwr ().join ('')}${_dqleft.rwr ()}${s.rwr ()}${_dqright.rwr ()}${ws2.rwr ()}`);
 return exit_rule ("statement");
 },
-str1ng_basicPair : function (s1,s2,) {
-enter_rule ("str1ng_basicPair");
+string_basicPair : function (s1,s2,) {
+enter_rule ("string_basicPair");
     set_return (`${s1.rwr ()}${s2.rwr ()}`);
-return exit_rule ("str1ng_basicPair");
+return exit_rule ("string_basicPair");
 },
-str1ng_basic : function (s,) {
-enter_rule ("str1ng_basic");
+string_basic : function (s,) {
+enter_rule ("string_basic");
     set_return (`${s.rwr ()}`);
-return exit_rule ("str1ng_basic");
+return exit_rule ("string_basic");
 },
-str1ng_interpolationPair : function (s1,s2,) {
-enter_rule ("str1ng_interpolationPair");
+string_interpolationPair : function (s1,s2,) {
+enter_rule ("string_interpolationPair");
     set_return (`${s1.rwr ()}${s2.rwr ()}`);
-return exit_rule ("str1ng_interpolationPair");
+return exit_rule ("string_interpolationPair");
 },
-str1ng_finalInterpolation : function (s,) {
-enter_rule ("str1ng_finalInterpolation");
+string_finalInterpolation : function (s,) {
+enter_rule ("string_finalInterpolation");
     set_return (`${s.rwr ()}`);
-return exit_rule ("str1ng_finalInterpolation");
+return exit_rule ("string_finalInterpolation");
 },
 basicString : function (cs,) {
 enter_rule ("basicString");
