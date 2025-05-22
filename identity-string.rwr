@@ -1,6 +1,11 @@
 % rewrite strint {
-  Main [s] = ‛«s»’
-  Statement [_print s] = ‛print «s»’
-  str1ng_recursive [_dollar lb s1 rb s2?] = ‛«_dollar»«lb»«s1»«rb»«s2»’
-  str1ng_other [c s?] = ‛«c»«s»’
+  main [s+] = ‛«s»’
+  statement [_print ws1+ _dqleft s _dqright ws2] = ‛«_print»«ws1»«_dqleft»«s»«_dqright»«ws2»’
+  str1ng_basicPair [s1 s2] = ‛«s1»«s2»’
+  str1ng_basic [s] = ‛«s»’
+  str1ng_interpolationPair [s1 s2] = ‛«s1»«s2»’
+  str1ng_finalInterpolation [s] = ‛«s»’
+  basicString [cs+] = ‛«cs»’
+  interpolation [_dollar _lb s _rb] = ‛«_dollar»«_lb»«s»«_rb»’
+  notSpecial [c] = ‛«c»’
 }
