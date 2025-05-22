@@ -10,6 +10,6 @@ def strcat (s1, s2):
   string_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
   string_finalInterpolation [s] = ‛«s»’
   basicString [cs+] = ‛"«cs»"’
-  interpolation [_dollar lb s rb] = ‛«s»’
+  interpolation [_dollar _lb s rb] = ‛«s»’
   notSpecial [c] = ‛«c»’
 }

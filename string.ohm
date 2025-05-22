@@ -9,6 +9,6 @@ strint {
     | interpolation -- finalInterpolation
   basicString = notSpecial+
   interpolation = "$" "{" string "}"
-  notSpecial = ~"$" ~"{" ~"}" ~"\"" any
+  notSpecial = ~("$" "{") ~"}" ~"\"" any
 }
 

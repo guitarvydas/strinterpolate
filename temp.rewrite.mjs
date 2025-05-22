@@ -17,17 +17,21 @@ let _rewrite = {
 
 main : function (s,) {
 enter_rule ("main");
-    set_return (`${s.rwr ().join ('')}`);
+    set_return (`
+def strcat (s1, s2):
+    return s1 + s2
+    
+${s.rwr ().join ('')}`);
 return exit_rule ("main");
 },
-statement : function (_print,ws1,_dqleft,s,_dqright,ws2,) {
+statement : function (_print,_ws,lq,s,rq,ws,) {
 enter_rule ("statement");
-    set_return (`${_print.rwr ()}${ws1.rwr ().join ('')}${_dqleft.rwr ()}${s.rwr ()}${_dqright.rwr ()}${ws2.rwr ()}`);
+    set_return (`print (${s.rwr ()})${ws.rwr ()}`);
 return exit_rule ("statement");
 },
 string_basicPair : function (s1,s2,) {
 enter_rule ("string_basicPair");
-    set_return (`${s1.rwr ()}${s2.rwr ()}`);
+    set_return (`strcat (${s1.rwr ()}, ${s2.rwr ()})`);
 return exit_rule ("string_basicPair");
 },
 string_basic : function (s,) {
@@ -37,7 +41,7 @@ return exit_rule ("string_basic");
 },
 string_interpolationPair : function (s1,s2,) {
 enter_rule ("string_interpolationPair");
-    set_return (`${s1.rwr ()}${s2.rwr ()}`);
+    set_return (`strcat (${s1.rwr ()}, ${s2.rwr ()})`);
 return exit_rule ("string_interpolationPair");
 },
 string_finalInterpolation : function (s,) {
@@ -47,12 +51,12 @@ return exit_rule ("string_finalInterpolation");
 },
 basicString : function (cs,) {
 enter_rule ("basicString");
-    set_return (`${cs.rwr ().join ('')}`);
+    set_return (`"${cs.rwr ().join ('')}"`);
 return exit_rule ("basicString");
 },
-interpolation : function (_dollar,_lb,s,_rb,) {
+interpolation : function (_dollar,_lb,s,rb,) {
 enter_rule ("interpolation");
-    set_return (`${_dollar.rwr ()}${_lb.rwr ()}${s.rwr ()}${_rb.rwr ()}`);
+    set_return (`${s.rwr ()}`);
 return exit_rule ("interpolation");
 },
 notSpecial : function (c,) {
