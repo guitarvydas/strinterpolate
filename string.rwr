@@ -4,7 +4,7 @@ def strcat (s1, s2):
     return s1 + s2
     
 «s»’
-  statement [_print _ws lq s rq ws] = ‛print («s»)«ws»’
+  statement [_print _spc+ lq s rq _ws] = ‛print («s»)«_ws»’
   string_basicPair [s1 s2] = ‛strcat («s1», «s2»)’ 
   string_basic [s] = ‛«s»’
   string_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
