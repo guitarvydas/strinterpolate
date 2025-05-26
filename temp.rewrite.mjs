@@ -36,7 +36,7 @@ return exit_rule ("expr_string");
 },
 expr_integer : function (ds,) {
 enter_rule ("expr_integer");
-    set_return (`"${ds.rwr ().join ('')}"`);
+    set_return (`str (${ds.rwr ().join ('')})`);
 return exit_rule ("expr_integer");
 },
 string_empty : function (lq,rq,) {
