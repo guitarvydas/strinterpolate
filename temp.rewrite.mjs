@@ -29,6 +29,11 @@ enter_rule ("statement");
     set_return (`print (${s.rwr ()})${_ws.rwr ()}`);
 return exit_rule ("statement");
 },
+expr : function (x,) {
+enter_rule ("expr");
+    set_return (`${x.rwr ()}`);
+return exit_rule ("expr");
+},
 string_empty : function (lq,rq,) {
 enter_rule ("string_empty");
     set_return (`""`);
@@ -64,9 +69,9 @@ enter_rule ("rawChars");
     set_return (`${cs.rwr ().join ('')}`);
 return exit_rule ("rawChars");
 },
-interpolation : function (_dollar,_lb,i,rb,) {
+interpolation : function (_dollar,_lb,e,rb,) {
 enter_rule ("interpolation");
-    set_return (`${i.rwr ()}`);
+    set_return (`${e.rwr ()}`);
 return exit_rule ("interpolation");
 },
 notSpecial : function (c,) {
