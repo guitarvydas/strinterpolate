@@ -5,7 +5,6 @@ strint {
   expr =
     | integerExpr -- iexpr
     | string -- string
-    | integer -- integer
   integerExpr =
     | integer "+" integerExpr -- rec
     | integer -- int

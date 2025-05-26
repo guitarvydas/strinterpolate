@@ -7,24 +7,46 @@ String interpolation expander to Python
 ### expected output
 ```
 $ make
-pbp/t2t.bash . ./pbp string.ohm string.rwr empty.js mad.si >junk.py
-cat junk.py
+pbp/t2t.bash . ./pbp string.ohm string.rwr empty.js mad.si >mad.py
+
+*** generated code ***
 
 def strcat (s1, s2):
     return s1 + s2
     
+print ("a")
+print ("")
+print ("b")
+print (strcat ("abc", "d"))
+print (strcat ("u", "v"))
+print (strcat ("u", strcat ("v", "w")))
+print (strcat (strcat ("u", "a"), strcat ("v", "w")))
 print (strcat ("Nested ", strcat ("interpolation?! Are you ", "mad?!")))
 print (strcat ("interpolation?! Are you ", "mad?!"))
 print ("Hello World")
 print (strcat ("Hollow ", "World"))
+print ("Hallowed")
 print (strcat ("Hallowed", strcat (" ", "World")))
+print (strcat (strcat ("u", str (7)), strcat ("v", "w")))
+print (strcat (strcat ("u", str (7 + 11)), strcat ("v", "w")))
 
-python3 junk.py
+
+*** run ***
+a
+
+b
+abcd
+uv
+uvw
+uavw
 Nested interpolation?! Are you mad?!
 interpolation?! Are you mad?!
 Hello World
 Hollow World
+Hallowed
 Hallowed World
+u7vw
+u18vw
 ```
 
 ## identity
