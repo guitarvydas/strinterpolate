@@ -29,10 +29,15 @@ enter_rule ("statement");
     set_return (`print (${s.rwr ()})${_ws.rwr ()}`);
 return exit_rule ("statement");
 },
-expr : function (x,) {
-enter_rule ("expr");
+expr_string : function (x,) {
+enter_rule ("expr_string");
     set_return (`${x.rwr ()}`);
-return exit_rule ("expr");
+return exit_rule ("expr_string");
+},
+expr_integer : function (ds,) {
+enter_rule ("expr_integer");
+    set_return (`"${ds.rwr ().join ('')}"`);
+return exit_rule ("expr_integer");
 },
 string_empty : function (lq,rq,) {
 enter_rule ("string_empty");
