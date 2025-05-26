@@ -3,8 +3,13 @@ strint {
   statement =
     | "print" space+ expr spaces
   expr =
+    | integerExpr -- iexpr
     | string -- string
-    | digit+ -- integer
+    | integer -- integer
+  integerExpr =
+    | integer "+" integerExpr -- rec
+    | integer -- int
+  integer = digit+
   string = 
     | "\"" "\"" -- empty
     | "\"" innards "\"" -- withInnards

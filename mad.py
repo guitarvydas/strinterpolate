@@ -16,4 +16,5 @@ print (strcat ("Hollow ", "World"))
 print ("Hallowed")
 print (strcat ("Hallowed", strcat (" ", "World")))
 print (strcat (strcat ("u", str (7)), strcat ("v", "w")))
+print (strcat (strcat ("u", str (7 + 11)), strcat ("v", "w")))
 

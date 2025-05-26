@@ -6,7 +6,10 @@ def strcat (s1, s2):
 «s»’
   statement [_print _spc+ s _ws] = ‛print («s»)«_ws»’
   expr_string [x] = ‛«x»’
-  expr_integer [ds+] = ‛str («ds»)’
+  expr_iexpr [e] = ‛str («e»)’
+  integerExpr_rec [i _plus e] = ‛«i» + «e»’
+  integerExpr_int [i] = ‛«i»’
+  integer [ds+] = ‛«ds»’
   string_empty [lq rq] = ‛""’
   string_withInnards [lq i rq] = ‛«i»’
   innards_charsPair [s1 s2] = ‛strcat ("«s1»", «s2»)’ 

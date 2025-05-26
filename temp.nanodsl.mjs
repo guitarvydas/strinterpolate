@@ -40,8 +40,13 @@ strint {
   statement =
     | "print" space+ expr spaces
   expr =
+    | integerExpr -- iexpr
     | string -- string
-    | digit+ -- integer
+    | integer -- integer
+  integerExpr =
+    | integer "+" integerExpr -- rec
+    | integer -- int
+  integer = digit+
   string = 
     | "\"" "\"" -- empty
     | "\"" innards "\"" -- withInnards
@@ -105,10 +110,25 @@ enter_rule ("expr_string");
     set_return (`${x.rwr ()}`);
 return exit_rule ("expr_string");
 },
-expr_integer : function (ds,) {
-enter_rule ("expr_integer");
-    set_return (`str (${ds.rwr ().join ('')})`);
-return exit_rule ("expr_integer");
+expr_iexpr : function (e,) {
+enter_rule ("expr_iexpr");
+    set_return (`str (${e.rwr ()})`);
+return exit_rule ("expr_iexpr");
+},
+integerExpr_rec : function (i,_plus,e,) {
+enter_rule ("integerExpr_rec");
+    set_return (`${i.rwr ()} + ${e.rwr ()}`);
+return exit_rule ("integerExpr_rec");
+},
+integerExpr_int : function (i,) {
+enter_rule ("integerExpr_int");
+    set_return (`${i.rwr ()}`);
+return exit_rule ("integerExpr_int");
+},
+integer : function (ds,) {
+enter_rule ("integer");
+    set_return (`${ds.rwr ().join ('')}`);
+return exit_rule ("integer");
 },
 string_empty : function (lq,rq,) {
 enter_rule ("string_empty");
