@@ -1,4 +1,15 @@
 String interpolation expander to Python
+
+This demo converts `mad.si` into runnable Python (`mad.py`), then runs it.
+
+`Mad.si` is a little SCN ("Solution Centric Notation", aka nano-DSL) that was built specially for this demo, but, otherwise does nothing useful.
+
+The SCN has 1 statement - `print` - which accepts 1 expression and prints it.
+
+At this time, an expression can only be one of two (very simple) things
+- a string
+- an integer expression with "+" as the only infix operator.
+
 # usage
 ## first time
 `$ make install`
@@ -55,7 +66,29 @@ I find it useful to just make an identity transform first. Output = input.
 This step in my workflow checks to see that the grammar and .rwr line up and alerts me of silly errors and typos. 
 Once the identity transform is working, I simply hack on the .rwr file to make it output what I really want to output.
 
-This demo converts `mad.si` into runnable Python (`mad.py`), then runs it.
+### expected output for identity
+```
+$ make identity
+pbp/t2t.bash . ./pbp string.ohm identity-string.rwr empty.js mad.si
+print "a"
+print ""
+print "${"b"}"
+print "abc${"d"}"
+print "${"u"}v"
+print "${"u"}v${"w"}"
+print "${"u${"a"}"}v${"w"}"
+print "Nested ${"interpolation?! Are you ${"mad?!"}"}"
+print "${"interpolation?! Are you ${"mad?!"}"}"
+print "Hello World"
+print "Hollow ${"World"}"
+print "${"Hallowed"}"
+print "${"Hallowed"} ${"World"}"
+print "${"u${7}"}v${"w"}"
+print "${"u${7+11}"}v${"w"}"
+
+```
+
+
 # Inspiration
 This simple demo was inspired by challenge #1 in chapter 16 of the book [Crafting Interpreters](https://craftinginterpreters.com/scanning-on-demand.html#challenges).
 
@@ -65,4 +98,4 @@ The grammar which parses this snippet is `string.ohm`.
 The rewrite rules used for rewriting the parse are in `string.rwr`.
 The syntax for writing grammars in OhmJS style can be found in the [OhmJS website](ohmjs.org).
 The syntax for writing rewrite rules is documented in [RWR Documentation](https://github.com/guitarvydas/pbp-dev/blob/dev/t2t/doc/rwr/RWR%20Spec.pdf).
-An earlier blog post about this is in [Substack string-interpolation](https://programmingsimplicity.substack.com/p/string-interpolation?r=1egdky&utm_campaign=post&utm_medium=web&triedRedirect=true).
+An earlier blog post about this is in [Substack string-interpolation](https://programmingsimplicity.substack.com/p/string-interpolation?r=1egdky&utm_campaign=post&utm_medium=web&triedRedirect=true) and in [Substack String Interpolation Continued]()
