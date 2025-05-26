@@ -1,14 +1,17 @@
 strint {
   main = statement+
   statement =
-    | "print" space+ "\"" string "\"" spaces
-  string =
-    | basicString string -- basicPair
-    | basicString -- basic
-    | interpolation string -- interpolationPair
-    | interpolation -- finalInterpolation
-  basicString = notSpecial+
+    | "print" space+ string spaces
+  string = 
+    | "\"" "\"" -- empty
+    | "\"" innards "\"" -- withInnards
+  innards =
+    | rawChars innards      -- charsPair
+    | rawChars              -- chars
+    | interpolation innards -- interpolationPair
+    | interpolation         -- interpolation
   interpolation = "$" "{" string "}"
+  rawChars = notSpecial+
   notSpecial = ~("$" "{") ~"}" ~"\"" any
 }
 
