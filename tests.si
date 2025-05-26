@@ -1,0 +1,8 @@
+//+ print "a"
+//+ print ""
+//+ print "${"b"}"
+//+ print "abc${"d"}"
+//+ print "${"u"}v"
+//+ print "${"u"}v${"w"}"
+//+ print "${"u${"a"}"}v${"w"}"
+
