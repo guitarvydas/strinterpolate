@@ -1,14 +1,23 @@
 strint {
   main = statement+
   statement =
-    | "print" space+ "\"" string "\"" spaces
-  string =
-    | basicString string -- basicPair
-    | basicString -- basic
-    | interpolation string -- interpolationPair
-    | interpolation -- finalInterpolation
-  basicString = notSpecial+
-  interpolation = "$" "{" string "}"
+    | "print" space+ expr spaces
+  expr =
+    | integerExpr -- iexpr
+    | string -- string
+  integerExpr =
+    | integer "+" integerExpr -- rec
+    | integer -- int
+  integer = digit+
+  string = 
+    | "\"" "\"" -- empty
+    | "\"" innards "\"" -- withInnards
+  innards =
+    | rawChars innards      -- charsPair
+    | rawChars              -- chars
+    | interpolation innards -- interpolationPair
+    | interpolation         -- interpolation
+  interpolation = "$" "{" expr "}"
+  rawChars = notSpecial+
   notSpecial = ~("$" "{") ~"}" ~"\"" any
 }
-

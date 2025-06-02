@@ -4,12 +4,19 @@ def strcat (s1, s2):
     return s1 + s2
     
 «s»’
-  statement [_print _ws lq s rq ws] = ‛print («s»)«ws»’
-  string_basicPair [s1 s2] = ‛strcat («s1», «s2»)’ 
-  string_basic [s] = ‛«s»’
-  string_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
-  string_finalInterpolation [s] = ‛«s»’
-  basicString [cs+] = ‛"«cs»"’
-  interpolation [_dollar _lb s rb] = ‛«s»’
+  statement [_print _spc+ s _ws] = ‛print («s»)«_ws»’
+  expr_string [x] = ‛«x»’
+  expr_iexpr [e] = ‛str («e»)’
+  integerExpr_rec [i _plus e] = ‛«i» + «e»’
+  integerExpr_int [i] = ‛«i»’
+  integer [ds+] = ‛«ds»’
+  string_empty [lq rq] = ‛""’
+  string_withInnards [lq i rq] = ‛«i»’
+  innards_charsPair [s1 s2] = ‛strcat ("«s1»", «s2»)’ 
+  innards_chars [s] = ‛"«s»"’
+  innards_interpolationPair [s1 s2] = ‛strcat («s1», «s2»)’ 
+  innards_interpolation [s] = ‛«s»’
+  rawChars [cs+] = ‛«cs»’
+  interpolation [_dollar _lb e rb] = ‛«e»’
   notSpecial [c] = ‛«c»’
 }
