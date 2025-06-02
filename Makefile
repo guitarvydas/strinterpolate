@@ -1,4 +1,4 @@
-all:
+all: install
 	pbp/t2t.bash . ./pbp string.ohm string.rwr empty.js mad.si >mad.py
 	@echo
 	@echo '*** generated code ***'
@@ -11,5 +11,5 @@ identity:
 	pbp/t2t.bash . ./pbp string.ohm identity-string.rwr empty.js mad.si
 
 install:
-	npm install yargs prompt-sync ohm-js
+	npm install
 

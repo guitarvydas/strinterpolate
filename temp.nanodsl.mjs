@@ -48,7 +48,7 @@ strint {
   integer = digit+
   string = 
     | "\"" "\"" -- empty
-    | "\"" innards? "\"" -- withInnards
+    | "\"" innards "\"" -- withInnards
   innards =
     | rawChars innards      -- charsPair
     | rawChars              -- chars
@@ -58,7 +58,6 @@ strint {
   rawChars = notSpecial+
   notSpecial = ~("$" "{") ~"}" ~"\"" any
 }
-
 `;
 
 let args = {};

@@ -21,4 +21,3 @@ strint {
   rawChars = notSpecial+
   notSpecial = ~("$" "{") ~"}" ~"\"" any
 }
-
